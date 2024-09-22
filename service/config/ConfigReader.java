@@ -1,3 +1,12 @@
+/* ***************************************************************
+* Autor............: Vitor Reis
+* Matricula........: 201710793
+* Inicio...........: 10/09/2024
+* Ultima alteracao.: 22/09/2024
+* Nome.............: ConfigReader
+* Funcao...........: Leitor das configuracoes
+*************************************************************** */
+
 package service.config;
 
 import java.io.File;
@@ -12,6 +21,13 @@ public class ConfigReader {
     this.pathname = pathname;
   }
 
+  /*
+   * ***************************************************************
+   * Metodo: read
+   * Funcao: busca o arquivo de configuracao
+   * Parametros: sem parametros
+   * Retorno: lista de strings
+   */
   public ArrayList<String> read() {
     ArrayList<String> array = new ArrayList<String>();
 
