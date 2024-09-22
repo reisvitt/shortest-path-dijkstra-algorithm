@@ -33,6 +33,8 @@ public class SplashController implements Initializable {
    * ***************************************************************
    * Metodo: goToMainScreen
    * Funcao: navega ate a tela principal
+   * Parametros: void
+   * Retorno: void
    */
   public void goToMainScreen() {
     try {
@@ -52,6 +54,13 @@ public class SplashController implements Initializable {
     }
   }
 
+  /*
+   * ***************************************************************
+   * Metodo: initialize
+   * Funcao: Inicializa o controller e suas dependencias
+   * Parametros: void
+   * Retorno: void
+   */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);

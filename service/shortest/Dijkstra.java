@@ -158,7 +158,7 @@ public class Dijkstra implements Shortest {
    * ***************************************************************
    * Metodo: getKValue
    * Funcao: calcula valores para o Thread sleep
-   * Parametros: sem parametros
+   * Parametros: void
    * Retorno: Integer com o valor calculado
    */
   public Integer getKValue() {

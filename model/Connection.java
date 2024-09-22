@@ -29,7 +29,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: getConnection1
    * Funcao: Retorna a connection 1 da conexao atual
-   * Retorno: Connection1
+   * Parametros: void
+   * Retorno: Router da Connection1
    */
   public Router getConnection1() {
     return connection1;
@@ -39,7 +40,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: setConnection1
    * Funcao: Atualiza a connection 1 da conexao atual
-   * Parametro: Connection1
+   * Parametros: connection1=Router da conexao 1
+   * Retorno: void
    */
   public void setConnection1(Router connection1) {
     this.connection1 = connection1;
@@ -49,7 +51,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: getConnection2
    * Funcao: Retorna a connection 2 da conexao atual
-   * Retorno: Connection2
+   * Parametros: void
+   * Retorno: Router da Connection2
    */
   public Router getConnection2() {
     return connection2;
@@ -59,7 +62,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: setConnection2
    * Funcao: Atualiza a connection 2 da conexao atual
-   * Parametro: Connection2
+   * Parametros: connection2=Router da conexao 2
+   * Retorno: void
    */
   public void setConnection2(Router connection2) {
     this.connection2 = connection2;
@@ -69,7 +73,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: getCost
    * Funcao: Retorna o custo desta conexao
-   * Retorno: custo desta conexao
+   * Parametros: void
+   * Retorno: Float do custo desta conexao
    */
   public Float getCost() {
     return cost;
@@ -79,7 +84,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: setCost
    * Funcao: Atualiza o custo desta conexao
-   * Parametro: custo desta conexao
+   * Parametro: cost= custo desta conexao
+   * Retorno: void
    */
   public void setCost(Float cost) {
     this.cost = cost;
@@ -89,6 +95,7 @@ public class Connection {
    * ***************************************************************
    * Metodo: isRendered
    * Funcao: verifica se a conexao atual esta renderizada
+   * Parametros: void
    * Retorna: boolean se a conexao atual esta renderizada
    */
   public boolean isRendered() {
@@ -99,7 +106,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: setRendered
    * Funcao: Atualiza se a conexao atual esta renderizada
-   * Parametro: boolean se a conexao atual esta renderizada
+   * Parametro: rendered=boolean se a conexao atual esta renderizada
+   * Retorno: void
    */
   public void setRendered(boolean rendered) {
     this.rendered = rendered;
@@ -109,6 +117,7 @@ public class Connection {
    * ***************************************************************
    * Metodo: getLine
    * Funcao: Retorna a Line da conexao atual
+   * Parametros: void
    * Retorno: Line da conexao atual
    */
   public Line getLine() {
@@ -119,7 +128,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: setLine
    * Funcao: Atualiza a Line da conexao atual
-   * Parametro: Line da conexao atual
+   * Parametro: line=Line da conexao atual
+   * Retorno: void
    */
   public void setLine(Line line) {
     this.line = line;
@@ -129,6 +139,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: showSelection
    * Funcao: altera a cor da borda da linha atual
+   * Parametros: void
+   * Retorno: void
    */
   public void showSelection() {
     this.line.setStroke(Color.web("#000"));
@@ -138,6 +150,8 @@ public class Connection {
    * ***************************************************************
    * Metodo: hideSelection
    * Funcao: retorna a cor da borda da linha atual para o padrao
+   * Parametros: void
+   * Retorno: void
    */
   public void hideSelection() {
     this.line.setStroke(Color.web("#8fd0d3"));

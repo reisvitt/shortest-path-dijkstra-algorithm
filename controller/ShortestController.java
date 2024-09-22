@@ -64,6 +64,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: routerPositions
    * Funcao: calcula a posicao de cada roteador
+   * Parametros: void
+   * Retorno: void
    */
   public void routerPositions() {
     // area of pane
@@ -104,8 +106,13 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: addRouter
    * Funcao: insere o roteador e suas informacoes na topologia
-   * Parametros: Roteador, posicao x, posicao y, posicao da legend x, posicao da
-   * legenda Y
+   * Parametros:
+   * router=Roteador,
+   * x=posicao x,
+   * y=posicao y,
+   * legendX=posicao da legend x,
+   * legendY=posicao da legenda Y
+   * Retorno:void
    */
   public void addRouter(Router router, double x, double y, double legendX, double legendY) {
     Text text = new Text(router.getIp());
@@ -139,7 +146,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: addConnection
    * Funcao: insere o conecao e suas informacoes na topologia
-   * Parametros: conexao a ser inserida
+   * Parametros: connection=Connection a ser inserida
+   * Retorno: void
    */
   public void addConnection(Connection connection) {
     connection.setRendered(true);
@@ -173,6 +181,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: start
    * Funcao: inicializa o algoritmo
+   * Parametros: void
+   * Retorno: void
    */
   @FXML
   public void start() {
@@ -204,6 +214,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: stop
    * Funcao: para o algoritmo
+   * Parametros: void
+   * Retorno: void
    */
   @FXML
   public void stop() {
@@ -214,6 +226,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: openAbout
    * Funcao: Abre modal de Sobre
+   * Parametros: void
+   * Retorno: void
    */
   @FXML
   public void openAbout() {
@@ -247,6 +261,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: initialize
    * Funcao: Inicializa o controller e suas dependencias
+   * Parametros: void
+   * Retorno: void
    */
   @Override
   public void initialize(URL location, ResourceBundle resources) {
