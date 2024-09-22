@@ -56,11 +56,15 @@
 .router-cost {
   -fx-fill: #000;
   -fx-font-weight: bold;
+  -fx-translate-y: -30;
+  -fx-translate-x: 10;
 }
 
 .router-from {
   -fx-fill: #000;
   -fx-font-weight: bold;
+  -fx-translate-y: -30;
+  -fx-translate-x: 35;
 }
 
 .router-connection {

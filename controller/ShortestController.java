@@ -78,7 +78,6 @@ public class ShortestController implements Initializable {
     double centerY = ((y + height) / 2) - 100;
 
     double radius = centerY / 1.3;
-    double radiusLegend = centerY / 1.14;
 
     double angleStep = 360.0 / this.routers.size();
 
@@ -87,10 +86,7 @@ public class ShortestController implements Initializable {
       double routerX = centerX + radius * Math.cos(angle);
       double routerY = centerY + radius * Math.sin(angle);
 
-      double legendX = centerX + radiusLegend * Math.cos(angle);
-      double legendY = centerY + 25 + radiusLegend * Math.sin(angle);
-
-      this.addRouter(this.routers.get(i), routerX, routerY, legendX, legendY);
+      this.addRouter(this.routers.get(i), routerX, routerY);
     }
 
     for (int i = 0; i < this.routers.size(); i++) {
@@ -109,33 +105,26 @@ public class ShortestController implements Initializable {
    * Parametros:
    * router=Roteador,
    * x=posicao x,
-   * y=posicao y,
-   * legendX=posicao da legend x,
-   * legendY=posicao da legenda Y
+   * y=posicao y
    * Retorno:void
    */
-  public void addRouter(Router router, double x, double y, double legendX, double legendY) {
+  public void addRouter(Router router, double x, double y) {
     Text text = new Text(router.getIp());
     text.getStyleClass().add("router-text");
 
     Text textCost = new Text("∞");
     textCost.getStyleClass().add("router-cost");
-    textCost.setLayoutX(legendX);
-    textCost.setLayoutY(legendY);
 
     Text textFrom = new Text("-");
     textFrom.getStyleClass().add("router-from");
-    textFrom.setLayoutX(legendX + 30);
-    textFrom.setLayoutY(legendY);
-
     StackPane stack = new StackPane();
     // Renderizar aqui se necessário
     stack.setLayoutX(x);
     stack.setLayoutY(y);
     stack.getStyleClass().add("router");
-    stack.getChildren().addAll(text);
+    stack.getChildren().addAll(text, textCost, textFrom);
 
-    network.getChildren().addAll(stack, textCost, textFrom);
+    network.getChildren().addAll(stack);
 
     router.setStack(stack);
     router.setTextCost(textCost);
