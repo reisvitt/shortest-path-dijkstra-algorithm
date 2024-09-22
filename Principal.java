@@ -1,53 +1,57 @@
-import java.util.ArrayList;
+/* ***************************************************************
+* Autor............: Vitor Reis
+* Matricula........: 201710793
+* Inicio...........: 10/09/2024
+* Ultima alteracao.: 22/09/2024
+* Nome.............: Principal
+* Funcao...........: Inicia a apliacao
+*************************************************************** */
 
-import model.Connection;
-import model.Router;
-import service.Dijkstra;
-import service.config.ConfigReader;
+import controller.ShortestController;
+import controller.SplashController;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-public class Principal{
-  public static void main(String[] args) {
+public class Principal extends Application {
+  SplashController splashController = new SplashController();
+  ShortestController shortestController = new ShortestController();
 
-    // load configs
-    ConfigReader reader = new ConfigReader("backbone.txt");
-    ArrayList<String> configs = reader.read();
+  @Override
+  public void start(Stage stage) throws Exception {
+    Image icon = new Image("/view/images/icon.png");
 
-    String firstLine = configs.get(0).replace(";", "");
-    Integer size = Integer.parseInt(firstLine);
+    Parent root = FXMLLoader.load(getClass().getResource("/view/SplashScreen.fxml"));
 
-    ArrayList<Router> routers = new ArrayList<Router>(size);
+    stage.getIcons().add(icon);
 
-    configs.subList(1, configs.size()).forEach(config -> {
-      String[] ipAndRouter = config.split(";");
-      String ip = ipAndRouter[0];
-      String connectionIp = ipAndRouter[1];
-      Integer cost = Integer.parseInt(ipAndRouter[2]);
+    double screenWidth = Screen.getPrimary().getBounds().getWidth();
+    double screenHeight = Screen.getPrimary().getBounds().getHeight();
 
-      Router router = new Router(ip);
-      Router connectionRouter = new Router(connectionIp);
+    double windowWidth = screenWidth * 1;
+    double windowHeight = screenHeight * 1;
 
-      if (routers.contains(router)) {
-        Integer index = routers.indexOf(router);
-        router = routers.get(index);
-      } else {
-        routers.add(router);
-      }
+    Scene scene = new Scene(root, windowWidth, windowHeight);
 
-      if (routers.contains(connectionRouter)) {
-        Integer index = routers.indexOf(connectionRouter);
-        connectionRouter = routers.get(index);
-      } else {
-        // add connection router to the routers
-        routers.add(connectionRouter);
-      }
-
-      // add connection to current router
-      Connection connection = new Connection(router, connectionRouter, cost);
-      router.addConnection(connection);
-      connectionRouter.addConnection(connection);
+    stage.setScene(scene);
+    stage.setTitle("Algoritmo do Caminho mais curto");
+    stage.setResizable(true);
+    stage.setFullScreen(true);
+    stage.initStyle(StageStyle.UNIFIED);
+    stage.setOnCloseRequest(t -> {
+      Platform.exit();
+      System.exit(0);
     });
+    stage.show();
+  }
 
-    Dijkstra dijkstra = new Dijkstra();
-    dijkstra.shortest(routers, "A", "D");
+  public static void main(String[] args) {
+    launch(args);
   }
 }
