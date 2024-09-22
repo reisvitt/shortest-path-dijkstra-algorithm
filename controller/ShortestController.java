@@ -64,6 +64,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: routerPositions
    * Funcao: calcula a posicao de cada roteador
+   * Parametros: void
+   * Retorno: void
    */
   public void routerPositions() {
     // area of pane
@@ -76,7 +78,6 @@ public class ShortestController implements Initializable {
     double centerY = ((y + height) / 2) - 100;
 
     double radius = centerY / 1.3;
-    double radiusLegend = centerY / 1.14;
 
     double angleStep = 360.0 / this.routers.size();
 
@@ -85,10 +86,7 @@ public class ShortestController implements Initializable {
       double routerX = centerX + radius * Math.cos(angle);
       double routerY = centerY + radius * Math.sin(angle);
 
-      double legendX = centerX + radiusLegend * Math.cos(angle);
-      double legendY = centerY + 25 + radiusLegend * Math.sin(angle);
-
-      this.addRouter(this.routers.get(i), routerX, routerY, legendX, legendY);
+      this.addRouter(this.routers.get(i), routerX, routerY);
     }
 
     for (int i = 0; i < this.routers.size(); i++) {
@@ -104,31 +102,29 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: addRouter
    * Funcao: insere o roteador e suas informacoes na topologia
-   * Parametros: Roteador, posicao x, posicao y, posicao da legend x, posicao da
-   * legenda Y
+   * Parametros:
+   * router=Roteador,
+   * x=posicao x,
+   * y=posicao y
+   * Retorno:void
    */
-  public void addRouter(Router router, double x, double y, double legendX, double legendY) {
+  public void addRouter(Router router, double x, double y) {
     Text text = new Text(router.getIp());
     text.getStyleClass().add("router-text");
 
     Text textCost = new Text("∞");
     textCost.getStyleClass().add("router-cost");
-    textCost.setLayoutX(legendX);
-    textCost.setLayoutY(legendY);
 
     Text textFrom = new Text("-");
     textFrom.getStyleClass().add("router-from");
-    textFrom.setLayoutX(legendX + 30);
-    textFrom.setLayoutY(legendY);
-
     StackPane stack = new StackPane();
     // Renderizar aqui se necessário
     stack.setLayoutX(x);
     stack.setLayoutY(y);
     stack.getStyleClass().add("router");
-    stack.getChildren().addAll(text);
+    stack.getChildren().addAll(text, textCost, textFrom);
 
-    network.getChildren().addAll(stack, textCost, textFrom);
+    network.getChildren().addAll(stack);
 
     router.setStack(stack);
     router.setTextCost(textCost);
@@ -139,7 +135,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: addConnection
    * Funcao: insere o conecao e suas informacoes na topologia
-   * Parametros: conexao a ser inserida
+   * Parametros: connection=Connection a ser inserida
+   * Retorno: void
    */
   public void addConnection(Connection connection) {
     connection.setRendered(true);
@@ -173,6 +170,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: start
    * Funcao: inicializa o algoritmo
+   * Parametros: void
+   * Retorno: void
    */
   @FXML
   public void start() {
@@ -204,6 +203,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: stop
    * Funcao: para o algoritmo
+   * Parametros: void
+   * Retorno: void
    */
   @FXML
   public void stop() {
@@ -214,6 +215,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: openAbout
    * Funcao: Abre modal de Sobre
+   * Parametros: void
+   * Retorno: void
    */
   @FXML
   public void openAbout() {
@@ -247,6 +250,8 @@ public class ShortestController implements Initializable {
    * ***************************************************************
    * Metodo: initialize
    * Funcao: Inicializa o controller e suas dependencias
+   * Parametros: void
+   * Retorno: void
    */
   @Override
   public void initialize(URL location, ResourceBundle resources) {

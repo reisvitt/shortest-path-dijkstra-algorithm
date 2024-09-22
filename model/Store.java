@@ -23,7 +23,8 @@ public class Store {
    * ***************************************************************
    * Metodo: getInstance
    * Funcao: instancia a store
-   * Retorno: instancia de store
+   * Parametros: void
+   * Retorno: instancia de Store
    */
   public static Store getInstance() {
     if (instance == null) {
@@ -45,6 +46,8 @@ public class Store {
    * ***************************************************************
    * Metodo: start
    * Funcao: inicia o algoritmo
+   * Parametros: void
+   * Retorno: void
    */
   public void start() {
     this.running.set(true);
@@ -54,6 +57,8 @@ public class Store {
    * ***************************************************************
    * Metodo: stop
    * Funcao: finaliza o algoritmo
+   * Parametros: void
+   * Retorno: void
    */
   public void stop() {
     this.running.set(false);
@@ -63,6 +68,8 @@ public class Store {
    * ***************************************************************
    * Metodo: getRunningProperty
    * Funcao: returna se algoritmo esta sendo executado
+   * Parametros: void
+   * Retorno: BooleanProperty de running
    */
   public BooleanProperty getRunningProperty() {
     return running;
@@ -72,7 +79,8 @@ public class Store {
    * ***************************************************************
    * Metodo: setVelocity
    * Funcao: altera o valor de velocidade
-   * Parametros: int vel = velocidade
+   * Parametros: vel = int de velocidade
+   * Retorno: void
    */
   public void setVelocity(int vel) {
     this.velocity.setValue(vel);
@@ -82,7 +90,8 @@ public class Store {
    * ***************************************************************
    * Metodo: getVelocity
    * Funcao: retorna o valor de velocidade
-   * Retorno: velocidade
+   * Parametros: void
+   * Retorno: IntegerProperty de velocidade
    */
   public IntegerProperty getVelocity() {
     return this.velocity;

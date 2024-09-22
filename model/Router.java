@@ -46,6 +46,8 @@ public class Router {
    * ***************************************************************
    * Metodo: init
    * Funcao: inicializa os valores ao instanciar Router
+   * Parametros: void
+   * Retorno: void;
    */
   public void init() {
     this.permanent = new SimpleBooleanProperty(false);
@@ -83,7 +85,8 @@ public class Router {
    * ***************************************************************
    * Metodo: shortestPath
    * Funcao: executa o shortest path para o algoritmo selecionado
-   * Parametros: router = roteador de origem. toIp roteador destino
+   * Parametros: router = roteador de origem. toIp = roteador destino
+   * Retorno: void
    */
   public void shortestPath(Router router, String toIp) {
     this.store.start();
@@ -108,6 +111,8 @@ public class Router {
    * ***************************************************************
    * Metodo: stopShortest
    * Funcao: para algoritmo
+   * Parametros: void
+   * Retorno: void
    */
   public void stopShortest() {
     this.store.stop();
@@ -117,6 +122,7 @@ public class Router {
    * ***************************************************************
    * Metodo: getIp
    * Funcao: retorna o ip do roteador atual
+   * Parametros: void
    * Retorno: string do ip
    */
   public String getIp() {
@@ -127,7 +133,8 @@ public class Router {
    * ***************************************************************
    * Metodo: setIp
    * Funcao: atualiza o ip do roteador atual
-   * Parametros: string do ip
+   * Parametros: ip = string com o ip
+   * Retorno: void
    */
   public void setIp(String ip) {
     this.ip = ip;
@@ -137,6 +144,7 @@ public class Router {
    * ***************************************************************
    * Metodo: getConnections
    * Funcao: retorna o as conexoes do roteador atual
+   * Parametros: void
    * Retorno: conexoes
    */
   public ArrayList<Connection> getConnections() {
@@ -147,7 +155,8 @@ public class Router {
    * ***************************************************************
    * Metodo: setConnections
    * Funcao: atualiza o as conexoes do roteador atual
-   * Parametros: conexoes
+   * Parametros: connections= conexoes deste roteador
+   * Retorno: void
    */
   public void setConnections(ArrayList<Connection> connections) {
     this.connections = connections;
@@ -157,7 +166,8 @@ public class Router {
    * ***************************************************************
    * Metodo: addConnection
    * Funcao: adiciona uma nova conexao ao roteador atual
-   * Parametros: conexoao
+   * Parametros: connection=nova conexao deste roteador
+   * Retorno: void
    */
   public void addConnection(Connection connection) {
     this.connections.add(connection);
@@ -180,7 +190,8 @@ public class Router {
    * ***************************************************************
    * Metodo: getPermanent
    * Funcao: retorna booleano se o roteador atual eh permanente
-   * Retorno: se eh permanente ou nao
+   * Parametros: void
+   * Retorno: boolean se eh permanente ou nao
    */
   public Boolean getPermanent() {
     return permanent.get();
@@ -190,7 +201,8 @@ public class Router {
    * ***************************************************************
    * Metodo: setPermanent
    * Funcao: atualiza o valor booleano se o roteador atual eh permanente
-   * Parametro: Boolean para o permanente
+   * Parametro: permanent= Boolean se eh o permanente
+   * Retorno: void
    */
   public void setPermanent(Boolean permanent) {
     this.permanent.set(permanent);
@@ -200,7 +212,8 @@ public class Router {
    * ***************************************************************
    * Metodo: getFrom
    * Funcao: retorna o roteador no qual sucedeu o atual
-   * Retorno: roteador de origem
+   * Parametros: void
+   * Retorno: Router=roteador de origem
    */
   public Router getFrom() {
     return from.get();
@@ -210,7 +223,8 @@ public class Router {
    * ***************************************************************
    * Metodo: setFrom
    * Funcao: atualiza o roteador no qual sucedeu o atual
-   * Parametro: roteador de origem
+   * Parametro: from=roteador de origem
+   * Retorno: void
    */
   public void setFrom(Router from) {
     this.from.set(from);
@@ -220,6 +234,7 @@ public class Router {
    * ***************************************************************
    * Metodo: getCost
    * Funcao: retorna o custo ate o roteador atual
+   * Parametros: void
    * Retorno: custo ate o roteador atual
    */
   public Float getCost() {
@@ -230,7 +245,8 @@ public class Router {
    * ***************************************************************
    * Metodo: setCost
    * Funcao: atualiza o custo ate o roteador atual
-   * Parametro: custo ate o roteador atual
+   * Parametro: cost=custo ate o roteador atual
+   * Retorno: void
    */
   public void setCost(Float cost) {
     this.cost.set(cost);
@@ -240,7 +256,8 @@ public class Router {
    * ***************************************************************
    * Metodo: getStack
    * Funcao: retorna a stack do roteador atual
-   * Retorno: a stack do roteador atual
+   * Parametros: void
+   * Retorno: StackPane do roteador atual
    */
   public StackPane getStack() {
     return stack;
@@ -250,7 +267,8 @@ public class Router {
    * ***************************************************************
    * Metodo: setStack
    * Funcao: atualiza a stack do roteador atual
-   * Parametros: a stack do roteador atual
+   * Parametros: stack=StackPane do roteador atual
+   * Retorno: void
    */
   public void setStack(StackPane stack) {
     this.stack = stack;
@@ -260,7 +278,8 @@ public class Router {
    * ***************************************************************
    * Metodo: getNetwork
    * Funcao: retorna a topologia do roteador atual
-   * Retorno: a topologia do roteador atual
+   * Parametros: void
+   * Retorno: Pane da topologia do roteador atual
    */
   public Pane getNetwork() {
     return this.network;
@@ -270,7 +289,8 @@ public class Router {
    * ***************************************************************
    * Metodo: getShortest
    * Funcao: retorna o algoritmo de caminho mais curto do roteador atual
-   * Retorno: o algoritmo de caminho mais curto
+   * Parametros: void
+   * Retorno: Shortest algoritmo de caminho mais curto
    */
   public Shortest getShortest() {
     return shortest;
@@ -280,7 +300,8 @@ public class Router {
    * ***************************************************************
    * Metodo: setShortest
    * Funcao: atualiza o algoritmo de caminho mais curto do roteador atual
-   * Parametro: o algoritmo de caminho mais curto
+   * Parametro: shortest=algoritmo de caminho mais curto
+   * Retorno: void
    */
   public void setShortest(Shortest shortest) {
     this.shortest = shortest;
@@ -290,7 +311,8 @@ public class Router {
    * ***************************************************************
    * Metodo: getTextFrom
    * Funcao: retorna o IP do roteador que sucedeu a este
-   * Retorno: IP do roteador
+   * Parametros: void
+   * Retorno: Text do IP do roteador
    */
   public Text getTextFrom() {
     return textFrom;
@@ -299,8 +321,9 @@ public class Router {
   /*
    * ***************************************************************
    * Metodo: setTextFrom
-   * Funcao: atualiza o IP do roteador que sucedeu a este
-   * Parametro: IP do roteador
+   * Funcao: atualiza o Text do IP do roteador que sucedeu a este
+   * Parametro: textFrom= Text do IP do roteador
+   * Retorno: void
    */
   public void setTextFrom(Text textFrom) {
     this.textFrom = textFrom;
@@ -310,7 +333,8 @@ public class Router {
    * ***************************************************************
    * Metodo: getTextCost
    * Funcao: retorna o custo ate este roteador
-   * Retorno: custo ate este roteador
+   * Parametros: void
+   * Retorno: Text do custo ate este roteador
    */
   public Text getTextCost() {
     return textCost;
@@ -320,7 +344,8 @@ public class Router {
    * ***************************************************************
    * Metodo: setTextCost
    * Funcao: atualiza o custo ate este roteador
-   * Parametros: custo ate este roteador
+   * Parametros: textCost=Text do custo ate este roteador
+   * Retorno: void
    */
   public void setTextCost(Text textCost) {
     this.textCost = textCost;
@@ -330,6 +355,8 @@ public class Router {
    * ***************************************************************
    * Metodo: showSelection
    * Funcao: adiciona classe que exibe o roteador atual com uma borda
+   * Parametros: void
+   * Retorno: void
    */
   public void showSelection() {
     this.stack.getStyleClass().add("selected");
@@ -339,6 +366,8 @@ public class Router {
    * ***************************************************************
    * Metodo: hideSelection
    * Funcao: remomve classe que exibe o roteador atual com uma borda
+   * Parametros: void
+   * Retorno: void
    */
   public void hideSelection() {
     this.stack.getStyleClass().remove("selected");
